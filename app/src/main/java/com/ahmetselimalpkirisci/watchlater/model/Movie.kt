@@ -4,23 +4,25 @@ import android.os.Parcel
 import android.os.Parcelable
 
 
-class Movie (
+class Movie(
     var id: Int,
     var title: String?,
     var director: String?,
     var actors: List<String>?,
-    var image: Int,
+    var imageUrl: String?,
     var writers: List<String>?,
     var synopsis: String?,
+    var similars: IntArray?,
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString(),
         parcel.readString(),
         parcel.createStringArrayList(),
-        parcel.readInt(),
+        parcel.readString(),
         parcel.createStringArrayList(),
-        parcel.readString()
+        parcel.readString(),
+        parcel.createIntArray()
     ) {
     }
 
@@ -29,9 +31,10 @@ class Movie (
         parcel.writeString(title)
         parcel.writeString(director)
         parcel.writeStringList(actors)
-        parcel.writeInt(image)
+        parcel.writeString(imageUrl)
         parcel.writeStringList(writers)
         parcel.writeString(synopsis)
+        parcel.writeIntArray(similars)
     }
 
     override fun describeContents(): Int {

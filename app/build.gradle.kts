@@ -84,4 +84,6 @@ dependencies {
 
     val worker_version="2.8.1"
     implementation ("androidx.work:work-runtime:$worker_version")
+
+    implementation ("io.coil-kt:coil:<latest>")
 }
