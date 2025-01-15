@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Movie Image -->
+        <ImageView
+            android:id="@+id/imgMovie"
+            android:layout_width="349dp"
+            android:layout_height="505dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_movie_placeholder"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Movie Title -->
+
+        <!-- Movie Synopsis -->
+
+        <!-- RatingBar (0-10) -->
+
+        <!-- "Didn't Watch It" Button -->
+        <me.zhanghai.android.materialratingbar.MaterialRatingBar
+            android:id="@+id/ratingBar"
+            style="@style/Widget.MaterialRatingBar.RatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:numStars="10"
+            android:stepSize="1"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtSynopsis" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtMovieTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Movie Title"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgMovie" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtSynopsis"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Movie synopsis goes here..."
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtMovieTitle" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNotWatched"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Didn't Watch It"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/btnRate"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+        <!-- "Rate It" Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Rate It"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/btnNotWatched"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

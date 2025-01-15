@@ -1,9 +1,9 @@
+// app/build.gradle.kts
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-
-    id("kotlin-kapt")
-
+    id("kotlin-kapt") // Ensure kapt is applied for annotation processing
 }
 
 android {
@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.ahmetselimalpkirisci.watchlater"
-        minSdk = 35
+        minSdk = 21 // Changed from 34 to 21
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -29,10 +29,12 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -49,9 +51,11 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.core.splashscreen)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
 
     implementation ( "com.squareup.picasso:picasso:2.8")
 
@@ -82,8 +86,20 @@ dependencies {
     api ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5")
     api ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.5")
 
-    val worker_version="2.8.1"
-    implementation ("androidx.work:work-runtime:$worker_version")
+    implementation ("androidx.work:work-runtime-ktx:2.8.1")
 
-    implementation ("io.coil-kt:coil:<latest>")
+// https://mvnrepository.com/artifact/com.yuyakaido.android/card-stack-view
+    implementation("com.github.yuyakaido:CardStackView:v2.3.4")
+    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation ("androidx.recyclerview:recyclerview:1.3.0")
+
+    implementation ("com.github.bumptech.glide:glide:4.15.1")
+    kapt ("com.github.bumptech.glide:compiler:4.15.1")
+
+    implementation ("me.zhanghai.android.materialratingbar:library:1.4.0")
+
+    implementation ("com.google.code.gson:gson:2.10.1")
+
+
+
 }

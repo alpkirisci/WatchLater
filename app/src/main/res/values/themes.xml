@@ -1,9 +1,26 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+
+    <!-- 1) Base application theme -->
     <style name="Base.Theme.WatchLater" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Customize your app's base theme here. -->
+        <!-- e.g., <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowBackground">@color/appColor</item>
     </style>
 
+    <!-- 2) Regular app theme -->
     <style name="Theme.WatchLater" parent="Base.Theme.WatchLater" />
+
+    <!-- 3) Splash theme for Android 12+ splash screen -->
+    <style name="Theme.WatchLater.Splash" parent="Theme.SplashScreen">
+        <!-- Splash background color -->
+        <item name="windowSplashScreenBackground">@color/appColor</item>
+
+        <!-- Splash icon (you can reference your app icon or a custom drawable) -->
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+
+
+        <!-- After splash screen is done, switch to your regular app theme -->
+        <item name="postSplashScreenTheme">@style/Theme.WatchLater</item>
+    </style>
+
 </resources>

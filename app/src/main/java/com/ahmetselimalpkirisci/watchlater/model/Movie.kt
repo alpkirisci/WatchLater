@@ -2,18 +2,29 @@ package com.ahmetselimalpkirisci.watchlater.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 
 
 class Movie(
-    var id: Int,
-    var title: String?,
-    var director: String?,
-    var actors: List<String>?,
-    var imageUrl: String?,
-    var writers: List<String>?,
-    var synopsis: String?,
-    var similars: IntArray?,
+    @SerializedName("id")
+    val id: Int,
+    @SerializedName("title")
+    val title: String?,
+    @SerializedName("director")
+    val director: String?,
+    @SerializedName("actors")
+    val actors: List<String>?,
+    @SerializedName("imageUrl")
+    val imageUrl: String?,
+    @SerializedName("writers")
+    val writers: List<String>?,
+    @SerializedName("synopsis")
+    val synopsis: String?,
+    @SerializedName("similars")
+    val similars: IntArray?,
 ) : Parcelable {
+
+
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString(),
@@ -39,6 +50,10 @@ class Movie(
 
     override fun describeContents(): Int {
         return 0
+    }
+
+    override fun toString(): String {
+        return "Movie(id=$id, title=$title, director=$director, actors=$actors, imageUrl=$imageUrl, writers=$writers, synopsis=$synopsis, similars=${similars?.contentToString()})"
     }
 
     companion object CREATOR : Parcelable.Creator<Movie> {
